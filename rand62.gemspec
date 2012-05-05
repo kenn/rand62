@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["kenn.ejima@gmail.com"]
   gem.description   = %q{Generates random alphanumeric characters}
   gem.summary       = %q{Generates random alphanumeric characters}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/kenn/rand62"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

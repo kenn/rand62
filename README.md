@@ -7,7 +7,7 @@ Rand62.safe(10)
  => "yTX35RzROS"
 ```
 
-It has better space efficiency than `SecureRandom.uuid` or `SecureRandom.hex`. It's sexier than `SecureRandom.base64` or `SecureRandom.urlsafe_base64` as Rand62 doesn't contain any symbols.
+Rand62 has better space efficiency than `SecureRandom.uuid` or `SecureRandom.hex`. It's sexier than `SecureRandom.base64` or `SecureRandom.urlsafe_base64` as it doesn't contain any symbols.
 
 If you care more about database efficiency than Ruby, and user-friendliness of the look of IDs, use Rand62.
 
@@ -15,21 +15,27 @@ If you care more about database efficiency than Ruby, and user-friendliness of t
 
 Add this line to your application's Gemfile:
 
-    gem 'rand62'
+```ruby
+gem 'rand62'
+```
 
 And then execute:
 
-    $ bundle
+```sh
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install rand62
+```sh
+$ gem install rand62
+```
 
 ## Usage
 
 There are two methods: `fast` and `safe`.
 
-* **safe** - It has less chance of collision, as internally it uses `SecureRandom`. Use this method until the performance of this method becomes a problem.
+* **safe** - It has less chance of collision, as internally it uses `SecureRandom`. Use this method until the performance becomes a real problem.
 * **fast** - About 10x faster than `safe` on Mac, but be careful as internally it uses rand().
 
 ```ruby
@@ -38,6 +44,15 @@ Rand62.fast(10)
 
 Rand62.safe(10)
  => "yTX35RzROS"
+```
+
+## Performance
+
+The following test results came from ruby 1.9.3p125 on iMac 2011 Core i5 2.7GHz.
+
+```ruby
+Rand62.fast(1000): 0.000654
+Rand62.safe(1000): 0.007871
 ```
 
 ## Contributing
