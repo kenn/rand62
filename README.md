@@ -52,8 +52,9 @@ It's recommended to use `safe` until the performance becomes a real problem.
 The following test results came from ruby 1.9.3p125 on iMac 2011 Core i5 2.7GHz.
 
 ```ruby
-Rand62.safe(1000)   # 0.007871
-Rand62.fast(1000)   # 0.000654
+1000.times{ SecureRandom.urlsafe_base64 }  # 0.006427
+1000.times{ Rand62.fast(22) }              # 0.015881
+1000.times{ Rand62.safe(22) }              # 0.161878
 ```
 
 ## Contributing
