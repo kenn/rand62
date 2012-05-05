@@ -33,14 +33,16 @@ $ gem install rand62
 
 ## Usage
 
-There are two methods: `fast` and `safe`. Pass the length of generated string to the method.
+There are two methods: `safe` and `fast`. Pass the length of generated string to the method.
 
 ```ruby
-Rand62.fast(10)
- => "sWCGqxY2kF"
+require 'rand62'
 
 Rand62.safe(10)
  => "yTX35RzROS"
+
+Rand62.fast(10)
+ => "sWCGqxY2kF"
 ```
 
 It's recommended to use `safe` until the performance becomes a real problem.
@@ -50,8 +52,8 @@ It's recommended to use `safe` until the performance becomes a real problem.
 The following test results came from ruby 1.9.3p125 on iMac 2011 Core i5 2.7GHz.
 
 ```ruby
-Rand62.fast(1000)   # 0.000654
 Rand62.safe(1000)   # 0.007871
+Rand62.fast(1000)   # 0.000654
 ```
 
 ## Contributing
